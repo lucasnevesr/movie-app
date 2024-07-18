@@ -1,0 +1,28 @@
+.searchbar{
+width: 100%;
+height: 100px;
+background-color: #1c1c1c;;
+position: relative;
+padding: 25px 0;
+
+}
+
+.searchbarContent{
+max-width: 1280px;
+width: 100%;
+height: 50px;
+background: #353535 ;
+margin: 0 auto;
+border-radius: 35px;
+position: relative;
+}
+
+.searchbarInput{
+    font-size: 35px;
+    position: absolute;
+    left: 70px;
+    top: 3px;
+    background: transparent;
+    color: #fff;
+    border: 0;
+}

@@ -1,0 +1,17 @@
+
+.header{
+width: 100%;
+background-color: #1c1c1c;
+}
+
+.headerContent{
+max-width: 1280px;
+min-height: 120px;
+padding: 20px 0;
+margin: 0 auto;
+}
+
+.title{
+    float: left;
+    color: whitesmoke;
+}
