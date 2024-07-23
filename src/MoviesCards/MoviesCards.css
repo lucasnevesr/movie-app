@@ -1,0 +1,20 @@
+.movies-cards-list {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.movie-card {
+    margin: 0 40px 40px 0 ;
+}
+
+.movie-poster {
+    height: 430px;
+    width: 290px;
+    
+}
+
+h2 {
+    font-size: 30px;
+    text-align: start;
+    margin-left: 40px;
+}

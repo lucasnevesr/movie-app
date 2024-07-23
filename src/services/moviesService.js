@@ -10,7 +10,7 @@ async function getMoviesService() {
       include_adult: "false",
       include_video: "false",
       language: "en-US",
-      page: "2",
+      page: "1",
       sort_by: "popularity.desc",
     },
     headers: {
@@ -20,15 +20,13 @@ async function getMoviesService() {
     },
   };
 
-  axios
-    .request(options)
-    .then(function (response) {
-      console.log(response.data);
-      return response.data;
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
+  try {
+    const response = await axios.request(options);
+    return response.data;
+  } catch (error) {
+    console.error("Erro na requisição:", error);
+    throw error;
+  }
 }
 
 export default getMoviesService;
