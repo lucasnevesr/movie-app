@@ -4,29 +4,36 @@ import MoviesCards from "./MoviesCards/MoviesCards";
 import SearchInput from "./SearchInput/SearchInput";
 import Header from "./Header/Header";
 import getMoviesService from "./services/moviesService";
+import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
 
 function App() {
   const [moviesList, setMoviesList] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const movieList = await getMoviesService();
-
-        setMoviesList(movieList.results);
+        const movieList = await getMoviesService(pageNumber);
+        if (pageNumber !== 1) {
+          setMoviesList(prevState => [...prevState, ...movieList.results]);
+        } else {setMoviesList(movieList.results)}
+        
       } catch (error) {
         console.error("Erro ao buscar filmes:", error);
       }
     };
 
     fetchMovies();
-  }, []);
+  }, [pageNumber]);
+  console.log(moviesList);
+  
 
   return (
     <>
       <Header />
       <SearchInput />
       <MoviesCards moviesList={moviesList} />
+      <LoadMoreButton setPageNumber={setPageNumber} />
     </>
   );
 }

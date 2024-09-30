@@ -6,7 +6,7 @@ function Header() {
       <div className="headerContent">
         <h1 className="title">Movie App</h1>
       </div>
-      ;
+      
     </div>
   );
 }

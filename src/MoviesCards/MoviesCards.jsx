@@ -18,7 +18,6 @@ function MoviesCards({ moviesList }) {
 
   return (
     <div>
-      <h2>Popular movies</h2>
       <ul className="movies-cards-list">{renderMovies(moviesList)}</ul>
     </div>
   );

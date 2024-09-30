@@ -1,5 +1,0 @@
-fazer cabeçalho
-fazer o MoviesCards
-fazer a lista não ordenada dentro de movie MoviesCards
-saber como lidar com os dados que virão da api (copiar uma parte da resposta pra dentro de um array)
-colocar os dados (cada filme) em lista dentro da lista não ordenada

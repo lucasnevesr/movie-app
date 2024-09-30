@@ -1,0 +1,22 @@
+STEPS --> USER STORY --> Descrição de tarefas --> DOD --> DONE
+
+- Define next steps (done)
+- button load more (DOD)
+- Searching movie
+- Movie details page (user story) 
+- Login/Register
+
+Button Load More: 
+criar um novo componente ButtonLoadMore
+-- criar uma função handleClick 
+--- responsável por buscar os dados dos novos 20 filmes  
+---- e salvar os novos dados preservando os antigos
+----- após isso em funcionamento somar +1 no state que salva as páginas
+
+
+Movie details page: 
+como usuário eu quero clicar no poster do filme da minha escolha para ver mais detalhes a respeito do filme em uma nova página
+-
+--
+---
+---- ler o que o lipe mandou no discord
