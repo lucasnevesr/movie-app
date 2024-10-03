@@ -1,41 +1,26 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import MoviesCards from "./MoviesCards/MoviesCards";
-import SearchInput from "./SearchInput/SearchInput";
-import Header from "./Header/Header";
-import getMoviesService from "./services/moviesService";
-import LoadMoreButton from "./LoadMoreButton/LoadMoreButton";
+ 
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useParams
+  } from "react-router-dom";
+import Home from "../src/Home/Home"
+import MoviesDetails from "./MoviesDetails/MoviesDetails";
+
 
 function App() {
-  const [moviesList, setMoviesList] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1)
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const movieList = await getMoviesService(pageNumber);
-        if (pageNumber !== 1) {
-          setMoviesList(prevState => [...prevState, ...movieList.results]);
-        } else {setMoviesList(movieList.results)}
-        
-      } catch (error) {
-        console.error("Erro ao buscar filmes:", error);
-      }
-    };
-
-    fetchMovies();
-  }, [pageNumber]);
-  console.log(moviesList);
-  
 
   return (
-    <>
-      <Header />
-      <SearchInput />
-      <MoviesCards moviesList={moviesList} />
-      <LoadMoreButton setPageNumber={setPageNumber} />
-    </>
-  );
+    <Router>
+        <Routes>
+        
+            <Route path="/" element={<Home />} /> 
+            <Route path="/:id" element={<MoviesDetails />} />
+       
+        </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App
