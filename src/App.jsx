@@ -3,7 +3,6 @@ import {
     BrowserRouter as Router,
     Routes,
     Route,
-    useParams
   } from "react-router-dom";
 import Home from "../src/Home/Home"
 import MoviesDetails from "./MoviesDetails/MoviesDetails";

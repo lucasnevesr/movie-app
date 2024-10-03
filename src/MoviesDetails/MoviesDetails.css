@@ -1,0 +1,63 @@
+.backdrop {
+    width: 100%;
+    background-color: #1c1c1c;
+    display: flex;
+
+}
+
+.image{
+    margin: 10px 0px 10px 10px ;
+    border-radius: 10px;
+    width: 500px;
+}
+
+h2 {
+    font-size: 35px;
+    background-color: #353535;
+    color: white;
+    margin: 0px;
+}
+
+.allDescription {
+    display: flex;
+    background-color: #353535;
+    margin: 15px;
+    border-radius: 10px;
+    flex-direction: column
+}
+
+.description {
+    display: flex;
+    
+}
+
+.overviewTitle {
+    margin-left: 10px;
+    color: white;
+    text-decoration: underline;
+
+}
+
+.overviewText {
+    font-size: 17px;
+    color: white;
+    text-align: left;
+    margin: 20px 10px 0px 10px;
+}
+
+.ratings {
+    display: flex;
+}
+
+.ratingsTitle {
+    margin-left: 10px;
+    color: white;
+    text-decoration: underline;
+}
+
+.ratingsText {
+    font-size: 17px;
+    color: white;
+    text-align: left;
+    margin: 20px 10px 0px 10px;
+}

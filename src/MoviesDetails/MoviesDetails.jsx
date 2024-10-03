@@ -1,4 +1,4 @@
-
+import "./MoviesDetails.css";
 import  useFetch  from '../Hooks/useFetch.js';
 import { useParams } from 'react-router-dom'
 
@@ -24,11 +24,22 @@ function MoviesDetails() {
 
     return (
 <div className='movie-detail'>
-    <div className='backdrop'>
         <h2>{details.title}</h2>
-        
+    <div className='backdrop'>
         <img className="image" src={`https://image.tmdb.org/t/p/w500${details.backdrop_path}`}/>
-       
+        <div className="allDescription">
+
+            <div className="description">
+            <h3 className="overviewTitle">Overview:</h3>
+            <p className="overviewText">{details.overview}</p>
+            </div>
+
+            <div className="ratings">
+            <h3 className="ratingsTitle">Ratings:</h3>
+            <p className="ratingsText">{details.vote_average.toFixed(1)}</p>
+            </div>
+            
+        </div>
     </div>
 </div>
 
