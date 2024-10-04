@@ -1,29 +1,41 @@
 import "./SearchInput.css";
 import { useState, useEffect } from "react";
-
+import { useDebounce } from "../Hooks/useDebounce"
+import { searchMovies } from "../services/moviesService"
 function SearchInput() {
 
 const [inputValue, setInputValue] = useState('')
-// const url = `https://api.themoviedb.org/3/search/movie?query=${}`
 
-function handleChange(event){
-  setInputValue(event.target.value)
-};
+const searchValue = useDebounce(inputValue, 2000)
 
 useEffect(() => {
 
-if (inputValue) {
-  return console.log(inputValue);
-}
+  console.log("entrou useeffect");
+  
+  const movieFetched = async () => {
+    console.log("entrou no movieFetched antes try");
+    
+    try { 
+      console.log("entrou no movieFetched dentro try");
+   
+      const movies = await searchMovies("Deadpool")  
+   console.log(movies.results);
+   
+   
+  } catch (error) {
+    console.error("Erro ao buscar filmes:", error);
+  }
+  
+  movieFetched()
 
-}, [inputValue]);
+}}, [searchValue]);
 
 
   return (
     <div className="searchbar">
       <div className="searchbarContent">
          <div className="searchIcon"/>
-          <input onChange={handleChange} input={inputValue} type="text" placeholder="Search" className="searchbarInput" />
+          <input onChange={(event) => setInputValue(event.target.value)} value={inputValue} type="text" placeholder="Search" className="searchbarInput" />
          
       </div>
     </div>

@@ -3,7 +3,7 @@ import "./Home.css";
 import MoviesCards from "../MoviesCards/MoviesCards";
 import SearchInput from "../SearchInput/SearchInput";
 import Header from "../Header/Header";
-import getMoviesService from "../services/moviesService";
+import {getMovies} from "../services/moviesService";
 import LoadMoreButton from "../LoadMoreButton/LoadMoreButton";
 
 function Home() {
@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const movieList = await getMoviesService(pageNumber);
+        const movieList = await getMovies(pageNumber);
         if (pageNumber !== 1) {
           setMoviesList(prevState => [...prevState, ...movieList.results]);
         } else {setMoviesList(movieList.results)}
