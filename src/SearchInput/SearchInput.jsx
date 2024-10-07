@@ -2,33 +2,27 @@ import "./SearchInput.css";
 import { useState, useEffect } from "react";
 import { useDebounce } from "../Hooks/useDebounce"
 import { searchMovies } from "../services/moviesService"
-function SearchInput() {
+function SearchInput({setMoviesList}) {
 
 const [inputValue, setInputValue] = useState('')
 
-const searchValue = useDebounce(inputValue, 2000)
+const searchValue = useDebounce(inputValue, 700)
 
 useEffect(() => {
-
-  console.log("entrou useeffect");
   
-  const movieFetched = async () => {
-    console.log("entrou no movieFetched antes try");
-    
+  const movieFetched = async () => { 
+
     try { 
-      console.log("entrou no movieFetched dentro try");
-   
-      const movies = await searchMovies("Deadpool")  
-   console.log(movies.results);
-   
-   
+      const movies = await searchMovies(searchValue)  
+   setMoviesList(movies.results)
   } catch (error) {
     console.error("Erro ao buscar filmes:", error);
   }
-  
-  movieFetched()
+}
 
-}}, [searchValue]);
+movieFetched()
+
+}, [searchValue]);
 
 
   return (

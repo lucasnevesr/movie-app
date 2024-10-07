@@ -22,16 +22,19 @@ function Home() {
         console.error("Erro ao buscar filmes:", error);
       }
     };
-
-    fetchMovies();
-  }, [pageNumber]);
+   
+    if (moviesList.length === 0) {
+      
+      fetchMovies();
+    }
+  }, [pageNumber, moviesList]);
   
   
 
   return (
     <>
       <Header />
-      <SearchInput />
+      <SearchInput setMoviesList={setMoviesList} />
       <MoviesCards moviesList={moviesList} />
       <LoadMoreButton setPageNumber={setPageNumber} />
     </>
